@@ -1,7 +1,4 @@
-/*============================================================================
-  Ajax the add to cart experience by revealing it in a side drawer
-  Plugin Documentation - http://shopify.github.io/Timber/#ajax-cart
-  (c) Copyright 2015 Shopify Inc. Author: Carson Shold (@cshold). All Rights Reserved.
+
 
   This file includes:
     - Basic Shopify Ajax API calls
@@ -77,17 +74,7 @@ ShopifyAPI.addItemFromForm = function(form, callback, errorCallback) {
     url: '/cart/add.js',
     data: jQuery(form).serialize(),
     dataType: 'json',
-    success: function(line_item) {
-      if ((typeof callback) === 'function') {
-        callback(line_item, form);
-      }
-      else {
-        ShopifyAPI.onItemAdded(line_item, form);
-      }
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      if ((typeof errorCallback) === 'function') {
-        errorCallback(XMLHttpRequest, textStatus);
+
       }
       else {
         ShopifyAPI.onError(XMLHttpRequest, textStatus);
